@@ -1,8 +1,9 @@
 <?php
+require_once 'Config.php';
 
 class Conexion
 {
-	private $con=null;
+    private $con=null;
     function __construct()
 	{
           $this->con = pg_connect("host=".HOST." port=".PORT." dbname=".DB_NAME." user=".USER." password=".PASS);
@@ -16,4 +17,6 @@ class Conexion
 
 
 }
+
+echo $conexion = new Conexion();
 ?>
