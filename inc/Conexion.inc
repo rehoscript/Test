@@ -12,7 +12,10 @@ class Conexion
 
 	function __destruct()
 	{
-		
+		if($this->id)
+		{
+                    echo pg_close($this->id);
+		}
 	}
 
         function getIdConexion()
