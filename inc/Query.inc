@@ -217,31 +217,5 @@ class Query
 	       return;
 	   }
 	}
-
-	function info()
-	{
-		//mysqli_escape_string()
-		echo "<p><b>Ver MySQL:</b> <code>".mysqli_get_client_info()."</code></p>";
-		echo "<p><b>Version MySQL:</b> <code>".mysqli_get_client_version()."</code></p>";
-		echo "<p><b>Host / Protocol:</b> <code>".mysqli_get_host_info($this->idConexion)."</code></p>";
-		#checarecho "<p><b>Version:</b> <code>". mysqli_get_metadata()."</code></p>";
-		echo "<p><b>Proto:</b> <code>".mysqli_get_proto_info($this->idConexion)."</code></p>";
-		echo "<p><b>Server Info:</b> <code>".mysqli_get_server_info($this->idConexion)."</code></p>";
-		echo "<p><b>Version Server:</b> <code>". mysqli_get_server_version($this->idConexion)."</code></p>";
-		echo "<p><b>General:</b> <code> ".mysqli_stat($this->idConexion)."</code></p>";
-	}
-
-	private function logQuery($query)
-	{
-		/*$fp = fopen(ABSPATH."querys.log","a+");
-		$date = date("d-m-Y H:i:s");
-		fwrite($fp, "\n[".$date."] ".$_SERVER['REMOTE_ADDR']." \"".$_SERVER["REQUEST_METHOD"]." ".$_SERVER['SCRIPT_FILENAME']."\" [".$query."] ".$_SERVER['HTTP_USER_AGENT']."\n\r");
-		fclose($fp);
-		return TRUE;*/
-	}
-
-
-
-
 }
 ?>
