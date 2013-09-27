@@ -3,11 +3,11 @@ require_once 'Config.php';
 
 class Conexion
 {
-    private $con=null;
+    private $id = null;
     function __construct()
 	{
-          $this->con = pg_connect("host=".HOST." port=".PORT." dbname=".DB_NAME." user=".USER." password=".PASS);
-          if (!$this->con) die("Ocurrio un error al intentar la conexion");
+          $this->id = pg_connect("host=".HOST." port=".PORT." dbname=".DB_NAME." user=".USER." password=".PASS);
+          if (!$this->id) die("Ocurrio un error al intentar la conexion");
 	}
 
 	function __destruct()
@@ -15,6 +15,10 @@ class Conexion
 		
 	}
 
+        function getIdConexion()
+        {
+            return $this->id;
+        }
 
 }
 
