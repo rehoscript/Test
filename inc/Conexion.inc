@@ -18,5 +18,5 @@ class Conexion
 
 }
 
-echo $conexion = new Conexion();
+
 ?>
