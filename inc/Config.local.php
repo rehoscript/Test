@@ -10,5 +10,7 @@
 	define("MYSQL_PASS","guzman");
 	define("MYSQL_HOST","localhost");
 	define("ANALITYCS",FALSE);
+	
+	echo 'entro local';
 
 ?>
