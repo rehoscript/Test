@@ -9,6 +9,7 @@ define("DB_NAME","postgres");
 define("USER","postgres");
 define("PASS","maped1819");
 define("HOST","localhost");
+define("PORT","5432");
 define("ANALITYCS",FALSE);
 define("RESULTTRACE",FALSE);
 define("MXDBG",FALSE);
