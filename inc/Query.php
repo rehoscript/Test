@@ -46,7 +46,12 @@ class Query
                     else if(strcmp($tipo,"arr")==0)
                     {
                         $this->arregloArr = array();
-                        $this->arregloArr = pg_fetch_array($this->idQuery,5, PGSQL_BOTH);
+                        //$this->arregloArr = pg_fetch_array($this->idQuery,5, PGSQL_BOTH);
+                        while($row = pg_fetch_array($this->idQuery,NULL, PGSQL_BOTH))
+                        {
+                            $this->arregloArr[] = $row;
+                        }
+                        
                         return $this->arregloArr;
                     }
                     else
