@@ -37,7 +37,7 @@ class Query
                     if(strcmp($tipo,"obj")==0)
                     {
                         $this->arregloObj = array();
-                        while($row = mysqli_fetch_object($this->idQuery))
+                        while($row = pg_fetch_object($this->idQuery))
                         {
                             $this->arregloObj[] = $row;
                         }
