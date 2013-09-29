@@ -11,7 +11,7 @@ $resultado= $sql->select("obj");
 
 foreach ($resultado as $res)
 {
-    echo $res->campo;
+    echo $res;
     echo "<br/>";
     
 }
