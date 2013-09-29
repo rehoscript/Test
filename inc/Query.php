@@ -9,7 +9,10 @@ class Query
 	private  $sql;
         private  $conexion;
         private  $idConexion;
-        private $idQuery;
+        private  $idQuery;
+        private $arregloObj;
+	private $arregloArr;
+        
 	function __construct()
 	{
             $this->conexion = new Conexion();
@@ -24,7 +27,42 @@ class Query
 
 	function select($tipo = "obj")
 	{
-	
+            if(!empty($this->sql))
+	    {
+                unset($this->idQuery,$this->arregloObj,$this->arregloArr);
+                $this->idQuery = pg_query($this->idConexion, $this->sql);//falta el Error
+                
+                if($this->numRegistros()>0)
+                {
+                    if(strcmp($tipo,"obj")==0)
+                    {
+                        $this->arregloObj = array();
+                        while($row = mysqli_fetch_object($this->idQuery))
+                        {
+                            $this->arregloObj[] = $row;
+                        }
+                        return $this->arregloObj;
+                    }
+                    else if(strcmp($tipo,"arr")==0)
+                    {
+                        $this->arregloArr = array();
+                        $this->arregloArr = pg_fetch_array($this->idQuery, 0, PGSQL_BOTH);
+                        return $this->arregloArr;
+                    }
+                    else
+                    {
+                        die("<h3>ERROR: No me has dicho como quieres los registros?.</h3>");
+                    }
+                }
+                else
+                {
+                    return NULL;
+                }
+	    }
+	    else
+	    {
+                die("<h3>ERROR: No has especificado un query &quot;SELECT&quot; v&oacute;lido.</h3>");
+	    }
 	}
 
 	function update($sql = NULL)
@@ -72,7 +110,7 @@ class Query
 	#Devuelve el numero de registros obtenidos de un SELECT
 	function numRegistros()
 	{
-
+            return ($this->idQuery)? pg_num_rows($this->idQuery):0;
 	}
 
 
