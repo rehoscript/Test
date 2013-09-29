@@ -6,10 +6,10 @@ $sql=new Query();
 //             "campo",
 //             "6");
 
-$sql->sql="SELECT * from test2";
+$sql->sql="SELECT campo from test2";
 $resultado= $sql->select("obj");
 
-foreach ($res as $resultado)
+foreach ($resultado as $res)
 {
     echo $res->campo;
     echo "<br/>";
