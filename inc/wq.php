@@ -6,8 +6,8 @@ $sql=new Query();
 //             "campo",
 //             "6");
 
-$sql->sql="SELECT * from test2";
+$sql->sql="SELECT campo from test2";
 echo $sql->select("obj");
-echo "<br/>";
-echo $sql->select("arr");
+//echo "<br/>";
+//echo $sql->select("arr");
 ?>
