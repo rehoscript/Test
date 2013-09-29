@@ -20,8 +20,8 @@ $sql->sql="SELECT campo from test2";
 //
 $resultado2= $sql->select("arr");
 
-var_dump($resultado2);
-//echo $resultado2[3]['campo'];
+//var_dump($resultado2);
+echo $resultado2[2]['campo'];
 
 
 
