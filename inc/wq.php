@@ -20,8 +20,8 @@ echo "<br/>";
 
 $resultado2= $sql->select("arr");
 
-var_dump($resultado2);
-echo $resultado2['campo'];
+//var_dump($resultado2);
+echo $resultado2[3]['campo'];
 
 
 
