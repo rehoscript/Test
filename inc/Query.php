@@ -37,11 +37,12 @@ class Query
 		{
 			unset($this->sql);
 			$this->sql = "INSERT INTO $tabla ($campos) VALUES ($values) ";
-                        pg_query($this->idConexion, $this->sql);
+                        pg_query($this->idConexion, $this->sql)
+                        or die("Error en el query");
 		}
 		else
 		{
-			pg_errormessage();
+			exit("<p>ERROR: No has especificado un query &quot;INSERT&quot; v&aacute;lido.</p>");
 		}
 	}
 
