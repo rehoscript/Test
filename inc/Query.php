@@ -20,11 +20,6 @@ class Query
                     
 	}
 
-	function __destruct()
-	{
-	
-	}
-
 	function select($tipo = "obj")
 	{
             if(!empty($this->sql))
@@ -72,7 +67,16 @@ class Query
 
 	function update($sql = NULL)
 	{
-	
+                if(!empty($sql))
+		{
+			unset($this->sql,$this->idQuery);
+			$this->idQuery = pg_query($this->idConexion,$sql);	
+			return TRUE;
+		}
+		else
+		{
+			exit("<p>ERROR: No has especificado un query &quot;UPDATE&quot; v&aacute;lido.</p>");
+		}
         }
 
 	function insert($tabla = NULL, $campos = NULL, $values = NULL)
@@ -92,24 +96,32 @@ class Query
 
 	function delete($tabla = NULL, $where = NULL)
 	{
-	
+                if(!empty($tabla) || !empty($where))
+		{
+			unset($this->sql,$this->idQuery);
+                        $this->sql = "DELETE FROM $tabla WHERE $where";
+                        $this->idQuery = pg_query($this->idConexion, $this->sql);
+                            
+                        //Falta optimizar
+                        return TRUE;
+		}
+		else
+		{
+			exit("<p>ERROR: No has especificado un query &quot;DELETE&quot; v&aacute;lido.</p>");
+		}
 	}
 
-	function cuentaCampos($campo = '*', $tabla = NULL, $where = '1')
-	{
-            
-	}
 
 	#Devuielve numero de campos obtenidos de un select
 	function numCampos()
 	{
-
+            return ($this->idQuery)? pg_num_fields($this->idQuery):0;
 	}
 
-	#Falta numero de registros aafetctados
+	#Retorna el numero de tuplas modificadas en INSERT, UPDATE, and DELETE queries. 
 	function camposAfectados()
 	{
-
+            return ($this->idQuery)?pg_affected_rows($this->idQuery):0;
 	}
 
 	#Devuelve el numero de registros obtenidos de un SELECT
@@ -117,20 +129,14 @@ class Query
 	{
             return ($this->idQuery)? pg_num_rows($this->idQuery):0;
 	}
-
-
-	function optimiza($tabla = NULL)
-	{
-
-	}
-
-	function query($sql = NULL)
-	{
-	
-	}
-
+        
 	function flush()
 	{
+           if($this->idQuery)
+	   {
+	       pg_free_result($this->idQuery);
+	       return;
+	   }
 	 
 	}
 }

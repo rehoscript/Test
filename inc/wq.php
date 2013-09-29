@@ -18,9 +18,11 @@ $sql->sql="SELECT campo from test2";
 //echo "----------------------";
 //echo "<br/>";
 //
+
+
 $resultado2= $sql->select("arr");
 
-//var_dump($resultado2);
+
 echo $resultado2[2]['campo'];
 
 
