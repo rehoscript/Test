@@ -9,6 +9,7 @@ class Query
 	private  $sql;
         private  $conexion;
         private  $idConexion;
+        private $idQuery;
 	function __construct()
 	{
             $this->conexion = new Conexion();
@@ -37,7 +38,7 @@ class Query
 		{
 			unset($this->sql);
 			$this->sql = "INSERT INTO $tabla ($campos) VALUES ($values) ";
-                        pg_query($this->idConexion, $this->sql)
+                        $this->idQuery = pg_query($this->idConexion, $this->sql)
                         or die("Error en el query");
 		}
 		else
@@ -77,7 +78,7 @@ class Query
 	#devuelve el primary key del ultimo elemento insertado
 	function dameUltimo()
 	{
-
+            ($this->idQuery) ? pg_last_oid($this->idQuery):0;
 	}
 
 	function optimiza($tabla = NULL)
