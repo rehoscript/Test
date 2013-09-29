@@ -13,9 +13,20 @@ $resultado= $sql->select("obj");
 foreach ($resultado as $res)
 {
     echo $res->campo;
+    echo "<br/>";    
+}
+echo "----------------------";
+echo "<br/>";
+
+$resultado2= $sql->select("arr");
+
+foreach ($resultado2 as $res)
+{
+    echo $res;
     echo "<br/>";
     
 }
-echo "----------------------";
-echo $sql->select("arr");
+
+
+
 ?>
