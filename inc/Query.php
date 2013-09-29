@@ -6,7 +6,7 @@ require_once 'Conexion.inc';
 
 class Query
 {
-	private  $sql;
+	public  $sql;
         private  $conexion;
         private  $idConexion;
         private  $idQuery;
