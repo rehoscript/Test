@@ -9,10 +9,10 @@ $sql=new Query();
 $sql->sql="SELECT campo from test2";
 $resultado= $sql->select("obj");
 
-echo var_dump($resultado);
+//echo var_dump($resultado);
 foreach ($resultado as $res)
 {
-    echo $res;
+    echo $res->campo;
     echo "<br/>";
     
 }
