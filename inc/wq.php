@@ -4,7 +4,7 @@ require_once 'Query.php';
 $sql=new Query();
 $sql->insert("test2",
              "campo",
-             "3");
+             "4");
 echo $sql->dameUltimo();
 
 ?>
