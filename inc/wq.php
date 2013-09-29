@@ -20,12 +20,7 @@ echo "<br/>";
 
 $resultado2= $sql->select("arr");
 
-foreach ($resultado2 as $res)
-{
-    echo $res;
-    echo "<br/>";
-    
-}
+echo $resultado2[1];
 
 
 
