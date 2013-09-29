@@ -1,7 +1,7 @@
 <?php
-require_once 'Conexion.inc';
+require_once 'Query.php';
 
-$con=new Conexion();
-$con->getIdConexion();
+$sql=new Query();
+
 
 ?>

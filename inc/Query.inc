@@ -1,11 +1,6 @@
 <?php
-#http://www.php.net/manual/es/function.mysql-create-db.php
-/**
- *
- * @author e-israel from TERACOM.mx
- * Copyrigth 2010
- *
- */
+
+
 if (!file_exists("Conexion.inc"))
 	die("<p>El archivo <code><b>Conexion.inc</b></code> no existe en el directorio ra&iacute;z.<br />
 				Contacta a <code><b>soporte@teracom.mx</b></code> para corregir este problema.</p>");
