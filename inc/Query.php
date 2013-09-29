@@ -78,7 +78,7 @@ class Query
 	#devuelve el primary key del ultimo elemento insertado
 	function dameUltimo()
 	{
-            ($this->idQuery) ? pg_last_oid($this->idQuery):0;
+            return ($this->idQuery) ? pg_last_oid($this->idQuery):0;
 	}
 
 	function optimiza($tabla = NULL)
