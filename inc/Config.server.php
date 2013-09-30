@@ -4,7 +4,7 @@
 define("ERRORTRACE",FALSE);
 error_reporting(0);
 define("DS",DIRECTORY_SEPARATOR);
-define("ABSPATH", "http://qrfastfood.teracom.mx/".DS);
+define("ABSPATH", "http://www.wwww.wwww/".DS);
 define("DB_NAME","postgres");
 define("USER","postgres");
 define("PASS","maped1819");
