@@ -2,9 +2,13 @@
 require_once 'Query.php';
 
 $sql=new Query();
-$sql->insert("test2",
-             "campo",
-             "7");
+//$sql->insert("test2",
+//             "campo",
+//             "7");
+
+
+$sql->delete("test2","campo = 6");
+
 
 //$sql->sql="SELECT campo from test2";
 ////$resultado= $sql->select("obj");
