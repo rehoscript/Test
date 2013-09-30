@@ -6,7 +6,7 @@ if (!file_exists("Conexion.inc"))
 				Contacta a <code><b>soporte@teracom.mx</b></code> para corregir este problema.</p>");
 
 include_once("Conexion.inc");
-
+include_once 'Error.inc';
 class Query
 {
 	private $conexion;

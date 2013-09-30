@@ -3,6 +3,7 @@ if (!file_exists("Conexion.inc"))
 	die("<p>El archivo <code><b>Conexion.inc</b></code> no existe en el directorio ra&iacute;z.<br/></p>");
 
 require_once 'Conexion.inc';
+require_once 'Error.inc';
 
 class Query
 {
@@ -25,7 +26,8 @@ class Query
             if(!empty($this->sql))
 	    {
                 unset($this->idQuery,$this->arregloObj,$this->arregloArr);
-                $this->idQuery = pg_query($this->idConexion, $this->sql);//falta el Error
+                $this->idQuery = pg_query($this->idConexion, $this->sql)
+                or die(E::error_pgsql(pg_errormessage(),__FILE__,__LINE__,__CLASS__,__FUNCTION__,__METHOD__,$_SERVER['PHP_SELF'],$this->sql));
                 
                 if($this->numRegistros()>0)
                 {
@@ -70,7 +72,8 @@ class Query
                 if(!empty($sql))
 		{
 			unset($this->sql,$this->idQuery);
-			$this->idQuery = pg_query($this->idConexion,$sql);	
+			$this->idQuery = pg_query($this->idConexion,$sql)
+                        or die(E::error_pgsql(pg_errormessage(),__FILE__,__LINE__,__CLASS__,__FUNCTION__,__METHOD__,$_SERVER['PHP_SELF'],$this->sql));	
 			return TRUE;
 		}
 		else
@@ -86,7 +89,7 @@ class Query
 			unset($this->sql);
 			$this->sql = "INSERT INTO $tabla ($campos) VALUES ($values) ";
                         $this->idQuery = pg_query($this->idConexion, $this->sql)
-                        or die(pg_errormessage());
+                        or die(E::error_pgsql(pg_errormessage(),__FILE__,__LINE__,__CLASS__,__FUNCTION__,__METHOD__,$_SERVER['PHP_SELF'],$this->sql));
 		}
 		else
 		{
@@ -100,7 +103,8 @@ class Query
 		{
 			unset($this->sql,$this->idQuery);
                         $this->sql = "DELETE FROM $tabla WHERE $where";
-                        $this->idQuery = pg_query($this->idConexion, $this->sql);
+                        $this->idQuery = pg_query($this->idConexion, $this->sql)
+                        or die(E::error_pgsql(pg_errormessage(),__FILE__,__LINE__,__CLASS__,__FUNCTION__,__METHOD__,$_SERVER['PHP_SELF'],$this->sql));
                             
                         //Falta optimizar
                         return TRUE;
