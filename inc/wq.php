@@ -2,28 +2,28 @@
 require_once 'Query.php';
 
 $sql=new Query();
-//$sql->insert("test2",
-//             "campo",
-//             "6");
+$sql->insert("test2",
+             "campo3",
+             "6");
 
-$sql->sql="SELECT campo from test22";
-//$resultado= $sql->select("obj");
+//$sql->sql="SELECT campo from test2";
+////$resultado= $sql->select("obj");
+////
+////
+////foreach ($resultado as $res)
+////{
+////    echo $res->campo;
+////    echo "<br/>";    
+////}
+////echo "----------------------";
+////echo "<br/>";
+////
 //
 //
-//foreach ($resultado as $res)
-//{
-//    echo $res->campo;
-//    echo "<br/>";    
-//}
-//echo "----------------------";
-//echo "<br/>";
+//$resultado2= $sql->select("arr");
 //
-
-
-$resultado2= $sql->select("arr");
-
-
-echo $resultado2[2]['campo'];
+//
+//echo $resultado2[2]['campo'];
 
 
 
