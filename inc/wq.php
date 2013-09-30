@@ -7,10 +7,10 @@ $sql=new Query();
 //             "7");
 
 
-$sql->update("UPDATE test2 SET campo=1111 where campo=1");
+//$sql->update("UPDATE test2 SET campo=1111 where campo=1");
 
 
-//$sql->delete("test2","campo = 6");
+$sql->delete("test2","campo = 6");
 
 
 //$sql->sql="SELECT campo from test2";
