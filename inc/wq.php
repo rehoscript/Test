@@ -4,7 +4,7 @@ require_once 'Query.php';
 $sql=new Query();
 $sql->insert("test2",
              "campo",
-             "6");
+             "7");
 
 //$sql->sql="SELECT campo from test2";
 ////$resultado= $sql->select("obj");
