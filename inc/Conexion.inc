@@ -1,4 +1,6 @@
 <?php
+//   Date             Modified by         Change(s)
+//   2013-09-24         HMP                 1.0
 require_once 'Config.php';
 
 class Conexion

@@ -1,9 +1,10 @@
 <?php
+//   Date             Modified by         Change(s)
+//   2013-09-24         HMP                 1.0
 
-
-class E
+class Error
 {
-    #die(E::error_mysql(mysqli_connect_errno(),mysqli_connect_error(),__FILE__,__LINE__,__CLASS__,__FUNCTION__,__METHOD__,$_SERVER['PHP_SELF'],$this->sql));
+    #die(Error::error_mysql(mysqli_connect_errno(),mysqli_connect_error(),__FILE__,__LINE__,__CLASS__,__FUNCTION__,__METHOD__,$_SERVER['PHP_SELF'],$this->sql));
     static function error_pgsql( $error, $archivo, $linea, $clase, $funcion, $metodo, $script, $sql)
     {
         echo "<h1>Bueno, esto es vergonzoso.</h1>";
