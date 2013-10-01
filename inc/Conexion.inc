@@ -10,12 +10,10 @@ class Conexion
     function __construct()
     {
           $URL="host=".HOST." port=".PORT." dbname=".DB_NAME." user=".USER." password=".PASS;
-          $this->id = pg_connect($URL, PGSQL_CONNECT_FORCE_NEW) or die("xxx")  ;
-//          if (!$this->id) 
-//              die ("#");
-          ini_set ("display_errors", "1");
+          $this->id = pg_connect($URL, PGSQL_CONNECT_FORCE_NEW)  ;
+          if (!$this->id) 
+              die (pg_errormessage());
 
-            error_reporting(E_ALL);
     }
      #esto puede cambiar despues
      function __destruct()
