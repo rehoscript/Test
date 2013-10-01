@@ -2,16 +2,20 @@
 //   Date             Modified by         Change(s)
 //   2013-09-24         HMP                 1.0
 require_once 'Config.php';
-
+require_once 'Error.inc';
 class Conexion
 {
     private $id = null;
     
     function __construct()
     {
-          $this->id = pg_connect("host=".HOST." port=".PORT." dbname=".DB_NAME." user=".USER." password=".PASS);
-          if (!$this->id) 
-              die("Ocurrio un error al intentar la conexion");
+          $URL="host=".HOST." port=".PORT." dbname=".DB_NAME." user=".USER." password=".PASS;
+          $this->id = pg_connect($URL, PGSQL_CONNECT_FORCE_NEW) or die("xxx")  ;
+//          if (!$this->id) 
+//              die ("#");
+          ini_set ("display_errors", "1");
+
+            error_reporting(E_ALL);
     }
      #esto puede cambiar despues
      function __destruct()
