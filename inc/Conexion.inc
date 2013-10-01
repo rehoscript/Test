@@ -12,7 +12,7 @@ class Conexion
           $URL="host=".HOST." port=".PORT." dbname=".DB_NAME." user=".USER." password=".PASS;
           $this->id = pg_connect($URL, PGSQL_CONNECT_FORCE_NEW)  ;
           if (!$this->id) 
-              die (pg_errormessage());
+              die(Error::error_pgsql(pg_errormessage(),__FILE__,__LINE__,__CLASS__,__FUNCTION__,__METHOD__,$_SERVER['PHP_SELF'],$this->sql));
 
     }
      #esto puede cambiar despues
