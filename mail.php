@@ -9,7 +9,7 @@ $headers .= "Organization: Sender Organization\r\n";
    $headers .= "Reply-To: hectormoralespalma@gmail.com\r\n";
    $headers .= "From: MetaSpace";
     
-mail("rehoscript@gmail.com", "Message", "A simple message.", $headers); 
+mail("rehoscript2@hotmail.com", "Message", "A simple message.", $headers); 
 
 
 ?>
