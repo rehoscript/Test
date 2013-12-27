@@ -1,35 +1,23 @@
 <?php
+require_once 'Swift-5.0.3/lib/swift_required.php';
 
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
-
-     $headers  = "MIME-Version: 1.0\r\n";
-            $headers .= "Content-type: text/html; charset=utf-8\n";
-            $headers .= "From: MetaSpace<hola@gmail.com>";
-            $headers .= "Reply-To: hola@gmail.com \r\n";
-
-            
-            $mensaje = <<<correo
-    <html>
-    <head>
-    <title>Bienvenido a MetaSpace</title>
-    </head>
-    <body>   
-    
-    </body>
-    </html>
-correo;
-            $titulo   = 'Comentario'; 
-            
-            
-            $res=mail('rehoscript@gmail.com', $titulo, $mensaje, $headers);
-            if($res)
-                echo true;
-            else
-                echo false;
+$transport = Swift_SmtpTransport::newInstance('smtp.gmail.com',
+                                              465,
+                                              'ssl')
+             ->setUsername('hectormoralespalma@gmail.com')
+             ->setPassword('maped1819');
+ 
+//Creamos el mailer pasándole el transport con la configuración de gmail
+$mailer = Swift_Mailer::newInstance($transport);
+ 
+//Creamos el mensaje
+$message = Swift_Message::newInstance($subject)
+            ->setFrom(array('rehoscript@gmail.com' => 'Blackslot'))
+            ->setTo("rehoscript@gmail.com")
+            ->setBody("hola");
+ 
+//Enviamos
+echo $result = $mailer->send($message);
     
 
 ?>
