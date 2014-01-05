@@ -46,7 +46,7 @@ if($_POST)
             $sql = new Query('MOD');
             $sql->insert("archivos",
              "archivo,id_commit",
-             "'".$file."',".$ultimoID);
+             "'".'sad'."',7");
         }
     }
 }
