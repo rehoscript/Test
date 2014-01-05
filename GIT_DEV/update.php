@@ -11,7 +11,7 @@ if($_POST)
     
    
         
-    $arrayPOST    = $_POST['commits'];
+    $arrayPOST    = $_POST['repository'];
     $arrayCommits = $arrayPOST['commits'];
     
     foreach ($arrayPOST as $commit) 
@@ -33,8 +33,8 @@ if($_POST)
         
         //$ultimoID = $sql->ultimoID("commit");
         //
-        $arrayFilesAdded    = $commit->added;
-        $arrayFilesModified = $commit->modified;
+//        $arrayFilesAdded    = $commit->added;
+//        $arrayFilesModified = $commit->modified;
         
         foreach ($arrayFilesAdded as $file) 
         {
