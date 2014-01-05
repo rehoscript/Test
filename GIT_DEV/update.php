@@ -5,7 +5,7 @@ require 'sources/Funciones.php';
         
         
         
-if($_POST['payload'])
+if($_POST)
 {
     //get Commits
     
