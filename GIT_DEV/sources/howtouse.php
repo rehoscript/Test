@@ -42,7 +42,7 @@ require_once 'Funciones.php';
 
 
 //$sql->update("UPDATE test2 SET campo=1111 where campo=1");
-
+ 
 
 //$sql->delete("test2","campo = 6");
 
