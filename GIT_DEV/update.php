@@ -28,7 +28,7 @@ if($_POST)
              "fecha,auto,nombre",
              "'".$date."','".$mailAuthor."','".$nameCommit."'");
         
-        $ultimoID = $sql->ultimoID("commit");
+        //$ultimoID = $sql->ultimoID("commit");
         //
         $arrayFilesAdded    = $commit->added;
         $arrayFilesModified = $commit->modified;
