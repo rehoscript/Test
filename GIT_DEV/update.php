@@ -1,5 +1,5 @@
 <?php
-
+require 'sources/Funciones.php';
 //Se envia datos
 if($_POST['payload'])
 {
