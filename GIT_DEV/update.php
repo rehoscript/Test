@@ -17,7 +17,7 @@ if($_POST)
     foreach ($arrayCommits as $commit) 
     {
         $author     = $commit->author;
-        $mailAuthor = $author['email'];
+        $mailAuthor = $author->email;
         $date       = $commit->timestamp;
         $nameCommit = $commit->message;
 
