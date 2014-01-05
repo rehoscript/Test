@@ -12,7 +12,7 @@ if($_POST)
    
         
     $arrayPOST    = $_POST['repository'];
-    $arrayCommits = $arrayPOST['commits'];
+    //$arrayCommits = $arrayPOST['commits'];
     
     foreach ($arrayPOST as $commit) 
     {
