@@ -11,7 +11,7 @@ if($_POST)
     
    
         
-    $arrayPOST    = $_POST['payload'];
+    $arrayPOST    = json_decode($_POST['payload']);
     //$arrayCommits = $arrayPOST['commits'];
     
     foreach ($arrayPOST as $commit) 
