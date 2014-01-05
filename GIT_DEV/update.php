@@ -11,7 +11,7 @@ if($_POST)
     
    
         
-    $arrayPOST    = $_POST['repository'];
+    $arrayPOST    = $_POST['payload'];
     //$arrayCommits = $arrayPOST['commits'];
     
     foreach ($arrayPOST as $commit) 
