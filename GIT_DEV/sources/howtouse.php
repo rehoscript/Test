@@ -4,7 +4,7 @@
 //require_once('./FirePHPCore/FirePHP.class.php');
 //ob_start();
 // 
-//
+// 
 require_once 'Funciones.php';
 //
 //
