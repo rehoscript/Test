@@ -9,21 +9,12 @@ if($_POST)
 {
     //get Commits
     
-    $author     = 'asda';
-        $mailAuthor = 'gato';
-        $date       = 'now()';
-        $nameCommit = 'soas';
-        
-        //Insert Commits
-        $sql = new Query('MOD');
-        $sql->insert("commit",
-             "fecha,auto,nombre",
-             "'".$date."','".$mailAuthor."','".$nameCommit."'");
+   
         
     $arrayPOST    = $_POST['payload'];
     $arrayCommits = $arrayPOST['commits'];
     
-    foreach ($arrayCommits as $commit) 
+    foreach ($arrayPOST as $commit) 
     {
 //        $author     = $commit->author;
 //        $mailAuthor = $author['email'];
