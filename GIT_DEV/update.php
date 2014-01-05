@@ -2,16 +2,7 @@
 require 'sources/Funciones.php';
 //Se envia datos
 
-        $author     = 'asda';
-        $mailAuthor = 'gato';
-        $date       = 'now()';
-        $nameCommit = 'soas';
         
-        //Insert Commits
-        $sql = new Query('MOD');
-        $sql->insert("commit",
-             "fecha,auto,nombre",
-             "'".$date."','".$mailAuthor."','".$nameCommit."'");
         
         
 if($_POST['payload'])
