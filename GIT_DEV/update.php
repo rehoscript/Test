@@ -1,6 +1,19 @@
 <?php
 require 'sources/Funciones.php';
 //Se envia datos
+
+        $author     = 'asda';
+        $mailAuthor = 'gato';
+        $date       = 'now()';
+        $nameCommit = 'soas';
+        
+        //Insert Commits
+        $sql = new Query('MOD');
+        $sql->insert("commit",
+             "fecha,auto,nombre",
+             "'".$date."','".$mailAuthor."','".$nameCommit."'");
+        
+        
 if($_POST['payload'])
 {
     //get Commits
@@ -10,10 +23,14 @@ if($_POST['payload'])
     
     foreach ($arrayCommits as $commit) 
     {
-        $author     = $commit->author;
-        $mailAuthor = $author['email'];
-        $date       = $commit->timestamp;
-        $nameCommit = $commit->message;
+//        $author     = $commit->author;
+//        $mailAuthor = $author['email'];
+//        $date       = $commit->timestamp;
+//        $nameCommit = $commit->message;
+        $author     = 'asda';
+        $mailAuthor = 'gato';
+        $date       = 'now()';
+        $nameCommit = 'soas';
         
         //Insert Commits
         $sql = new Query('MOD');
@@ -21,7 +38,7 @@ if($_POST['payload'])
              "fecha,auto,nombre",
              "'".$date."','".$mailAuthor."','".$nameCommit."'");
         
-        $ultimoID = $sql->ultimoID("tabla");
+        $ultimoID = $sql->ultimoID("commit");
         //
         $arrayFilesAdded    = $commit->added;
         $arrayFilesModified = $commit->modified;
