@@ -30,6 +30,12 @@ if($_POST)
         
         //$ultimoID = $sql->ultimoID("commit");
         //
+        
+        $sql2 = new Query('MOD');
+            $sql2->insert("archivos",
+             "archivo,id_commit",
+             "'".'sad'."',7");
+            
         $arrayFilesAdded    = $commit->added;
         $arrayFilesModified = $commit->modified;
         
@@ -43,8 +49,8 @@ if($_POST)
         }
         foreach ($arrayFilesModified as $file) 
         {
-            $sql = new Query('MOD');
-            $sql->insert("archivos",
+            $sql2 = new Query('MOD');
+            $sql2->insert("archivos",
              "archivo,id_commit",
              "'".'sad'."',7");
         }
