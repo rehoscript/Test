@@ -28,10 +28,10 @@ if($_POST)
              "fecha,auto,nombre",
              "'".$date."','".$mailAuthor."','".$nameCommit."'");
         
-        //$ultimoID = $sql->ultimoID("commit");
+        $ultimoID = $sql->ultimoID("commit");
         //
-//        $arrayFilesAdded    = $commit->added;
-//        $arrayFilesModified = $commit->modified;
+        $arrayFilesAdded    = $commit->added;
+        $arrayFilesModified = $commit->modified;
         
         foreach ($arrayFilesAdded as $file) 
         {
@@ -43,10 +43,10 @@ if($_POST)
         }
         foreach ($arrayFilesModified as $file) 
         {
-//            $sql = new Query('SG');
-//            $sql->insert("test2",
-//             "campo",
-//             "7");
+            $sql = new Query('MOD');
+            $sql->insert("archivos",
+             "archivo,id_commit",
+             "'".$file."',".$ultimoID);
         }
     }
 }
