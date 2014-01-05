@@ -60,7 +60,7 @@ require_once 'Funciones.php';
 //    echo "<br/>";    
 //}
 //echo "----------------------";
-////echo "<br/>";
+////echo "<br/>"; 
 ////
 //
 //
