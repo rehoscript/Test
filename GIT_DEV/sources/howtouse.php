@@ -75,7 +75,7 @@ require_once 'Funciones.php';
 //
 //        $firephp->log($var, 'Iterators');
 
-
+ 
 //if (isset($_COOKIE["user"]))
 //  echo "Welcome " . $_COOKIE["user"] . "!<br>";
 //else{
