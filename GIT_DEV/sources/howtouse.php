@@ -65,7 +65,7 @@ require_once 'Funciones.php';
 //
 //
 //$resultado2= $sql->select("arr");
-    
+     
 //
 //echo $resultado2[2]['campo'];
         
