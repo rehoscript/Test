@@ -28,7 +28,7 @@ if($_POST)
              "fecha,auto,nombre",
              "'".$date."','".$mailAuthor."','".$nameCommit."'");
         
-        //$ultimoID = $sql->ultimoID("commit");
+        $ultimoID = $sql->ultimoID("commit");
         //
         
         
@@ -48,7 +48,7 @@ if($_POST)
             $sql2 = new Query('MOD');
             $sql2->insert("archivos",
              "archivo,id_commit",
-             "'".'sad'."',7");
+             "'".$file."',".$ultimoID);
         }
     }
 }
