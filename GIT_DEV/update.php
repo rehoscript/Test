@@ -12,18 +12,15 @@ if($_POST)
    
         
     $arrayPOST    = json_decode($_POST['payload']);
-    //$arrayCommits = $arrayPOST['commits'];
+    $arrayCommits = $arrayPOST ->commits;
     
-    foreach ($arrayPOST as $commit) 
+    foreach ($arrayCommits as $commit) 
     {
-//        $author     = $commit->author;
-//        $mailAuthor = $author['email'];
-//        $date       = $commit->timestamp;
-//        $nameCommit = $commit->message;
-        $author     = 'asda';
-        $mailAuthor = 'gato';
-        $date       = 'now()';
-        $nameCommit = 'soas';
+        $author     = $commit->author;
+        $mailAuthor = $author['email'];
+        $date       = $commit->timestamp;
+        $nameCommit = $commit->message;
+
         
         //Insert Commits
         $sql = new Query('MOD');
