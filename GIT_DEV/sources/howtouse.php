@@ -85,7 +85,6 @@ require_once 'Funciones.php';
 //}
 
 
-
  
 // $ret = enviarCorreoPassword2('rehoscript@gmail.com', "hola que ace");
 //  echo ($ret? "TRUE" : "FALSE");
