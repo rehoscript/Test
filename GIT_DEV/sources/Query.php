@@ -1,25 +1,28 @@
 <?php
 //   Date             Modified by         Change(s)
-//   2013-09-24         HMP                 1.0
-if (!file_exists("Conexion.inc"))
-	die("<p>El archivo <code><b>Conexion.inc</b></code> no existe en el directorio ra&iacute;z.<br/></p>");
-if (!file_exists("Error.inc"))
-	die("<p>El archivo <code><b>Error.inc</b></code> no existe en el directorio ra&iacute;z.<br/></p>");
+//   2013-09-24         HMP                 1.1
+
+//if (!file_exists("Conexion.inc"))
+//	die("<p>El archivo <code><b>Conexion.inc</b></code> no existe en el directorio ra&iacute;z.<br/></p>");
+//if (!file_exists("Error.inc"))
+//	die("<p>El archivo <code><b>Error.inc</b></code> no existe en el directorio ra&iacute;z.<br/></p>");
+
 require_once 'Conexion.inc';
 require_once 'Error.inc';
 
 class Query
 {
-	public  $sql;
+	public   $sql;
         private  $conexion;
         private  $idConexion;
-        private  $idQuery;
-        private $arregloObj;
-	private $arregloArr;
+        private  $idQuery;#representa lo que devuelve el Query
+        private  $arregloObj;
+	private  $arregloArr;
+        private  $ultimoId;
         
-	function __construct()
+	function __construct($tipoBD)
 	{
-            $this->conexion = new Conexion();
+            $this->conexion = new Conexion($tipoBD);
             $this->idConexion = $this->conexion->getIdConexion();
                     
 	}
@@ -74,6 +77,7 @@ class Query
 	{
                 if(!empty($sql))
 		{
+                        //echo "<code>$sql</code>";
 			unset($this->sql,$this->idQuery);
 			$this->idQuery = pg_query($this->idConexion,$sql)
                         or die(Error::error_pgsql(pg_errormessage(),__FILE__,__LINE__,__CLASS__,__FUNCTION__,__METHOD__,$_SERVER['PHP_SELF'],$this->sql));	
@@ -99,6 +103,10 @@ class Query
 			exit("<p>ERROR: No has especificado un query &quot;INSERT&quot; v&aacute;lido.</p>");
 		}
 	}
+        
+        
+       
+        
 
 	function delete($tabla = NULL, $where = NULL)
 	{
@@ -117,6 +125,56 @@ class Query
 			exit("<p>ERROR: No has especificado un query &quot;DELETE&quot; v&aacute;lido.</p>");
 		}
 	}
+        /**
+         * Funcion que devuelve el Ultimo ID de la tabla
+         * @param type $tabla
+         * @see Esta funcion funciona correctamente si la tabla fue creada con  un ID serial
+         * ya que el nombre de la secuencia sera nombreTabla_campoID_seq, 
+         * Tambien se requiere que el campo ID de la tabla sea el primero en orden VER linea 140
+         * de Query.php
+         * Retorna null si la tabla esta 
+        */
+        function ultimoID($tabla)
+        {
+            $this->sql = "SELECT * FROM ".$tabla." LIMIT 1";
+            $this->select("arr");
+            $campoId = pg_field_name($this->idQuery, 0) or die("Error"); 
+            
+            if($campoId)
+            {
+                $this->sql = "SELECT currval('".$tabla."_".$campoId."_seq')";
+                $resultado  = $this->select("arr");
+                
+                if($resultado)
+                {
+                    return $resultado[0]['currval'];
+                }
+        
+            }
+            
+            return NULL;
+        }
+        
+        function siguienteID($tabla)
+        {
+            $this->sql = "SELECT * FROM ".$tabla." LIMIT 1";
+            $this->select("arr");
+            $campoId = pg_field_name($this->idQuery, 0) or die("Error"); 
+            
+            if($campoId)
+            {
+                $this->sql = "SELECT  (last_value) as sig FROM ".$tabla."_".$campoId."_seq";
+                $resultado  = $this->select("arr");
+                
+                if($resultado)
+                {
+                    return $resultado[0]['sig'];
+                }
+        
+            }
+            
+            return NULL;
+        }
 
 
 	#Devuielve numero de campos obtenidos de un select
@@ -146,6 +204,23 @@ class Query
 	   }
 	 
 	}
+        #Devuelve en un array todos los campos devueltos por un select
+        function camposSelect()
+        {
+            if($this->idQuery)
+            {
+                $arrayCampos= array();
+                
+                $i = pg_num_fields($this->idQuery);
+                for ($j = 0; $j < $i; $j++) {
+                    $fieldname = pg_field_name($this->idQuery, $j);
+                    array_push($arrayCampos, $fieldname);
+                }
+                
+                return $arrayCampos;
+            }
+            return NULL;
+        }
 }
 
 
