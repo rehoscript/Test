@@ -6,8 +6,8 @@ require 'Query.php';
 function generarListadoCommits($correo)
 {
     $sql = new Query('MOD');
-    $sql->sql = "SELECT id FROM commit WHERE auto='".$correo."'";
-    $sql->sql = "SELECT id from commit";
+    $sql->sql = "SELECT * FROM commit WHERE auto='".$correo."'";
+    //$sql->sql = "SELECT id from commit";
     $resultado = $sql->select('obj');
     
     if($resultado)
@@ -30,10 +30,8 @@ function generarListadoCommits($correo)
                     <br/>
                     <ul>
                  ';
-            $sql5 = new Query('MOD');
-            $sql5->sql = "SELECT id FROM archivos  WHERE id_commit = ".$commit->id;
-            $resultado2 = $sql5->select();
-            
+//            
+            $resultado2 = exts($commit->id);
             if($resultado2)
             {
                 foreach ($resultado2 as $archivo) 
@@ -51,4 +49,11 @@ function generarListadoCommits($correo)
     
 }
 
+
+function exts($id)
+{
+    $sql5 = new Query('MOD');
+            $sql5->sql = "SELECT * FROM archivos  WHERE id_commit = ".$id;
+           return  $resultado2 = $sql5->select();
+}
 ?>
