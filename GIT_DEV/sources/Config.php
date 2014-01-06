@@ -48,11 +48,11 @@ define("PORT_MOD","5432");
 
 
 //Configuracion de Sistema de Gestion
-define("DB_NAME_SG","softmeta_sgi");
+define("DB_NAME_SG","softmeta");
 define("USER_SG","softmeta");
-define("PASS_SG","s0ftm3t6-.");
-define("HOST_SG","192.168.57.161");
-define("PORT_SG","5432");
+define("PASS_MOD","s0ftm3t6-.");
+define("HOST_MOD","192.241.217.91");
+define("PORT_MOD","5432");
 
 define ("IP_SERVER_PUBLIC",'http://148.208.235.6/');
 
