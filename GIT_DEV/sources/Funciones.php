@@ -6,7 +6,7 @@ require 'Query.php';
 function generarListadoCommits($correo)
 {
     $sql = new Query('MOD');
-    //$sql->sql = "SELECT * FROM commit WHERE auto='".$correo."'";
+    $sql->sql = "SELECT id FROM commit WHERE auto='".$correo."'";
     $sql->sql = "SELECT id from commit";
     $resultado = $sql->select('obj');
     
