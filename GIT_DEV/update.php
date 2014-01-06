@@ -37,11 +37,10 @@ if($_POST)
         
         foreach ($arrayFilesAdded as $file) 
         {
-          //Inserts Files
-//            $sql = new Query('SG');
-//            $sql->insert("test2",
-//             "campo",
-//             "7");
+            $sql3 = new Query('MOD');
+            $sql3->insert("archivos",
+             "archivo,id_commit",
+             "'".$file."',".$ultimoID);
         }
         foreach ($arrayFilesModified as $file) 
         {
