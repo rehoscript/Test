@@ -32,7 +32,7 @@ function generarListadoCommits($correo)
                  ';
             $sql5 = new Query('MOD');
             $sql5->sql = "SELECT * FROM archivos  WHERE id_commit = ".$commit->id;
-            $resultado2 = $sql->select();
+            $resultado2 = $sql5->select();
             
             if($resultado2)
             {
