@@ -9,7 +9,7 @@ $headers .= "Organization: Sender Organization\r\n";
    $headers .= "Reply-To: hectormoralespalma@gmail.com\r\n";
    $headers .= "From: MetaSpace";
     
-mail("enriquegprc@terra.com.mx", "Message", "A simple message.", $headers); 
+mail("09280476@ittoluca.edu.mx", "Message", "A simple message.", $headers); 
 //require ("PHPMailer-master/class.phpmailer.php");
 ////require("class.phpmailer.php");
 //$mail = new PHPMailer();
@@ -88,7 +88,8 @@ $mail->SMTPSecure = "tls";
 //Set an alternative reply-to address
 //$mail->addReplyTo('replyto@example.com', 'First Last');
 //Set who the message is to be sent to
-$mail->addAddress('enriquegprc@terra.com.mx', 'John Doe');
+//$mail->addAddress('enriquegprc@terra.com.mx', 'John Doe');
+$mail->addAddress('09280476@ittoluca.edu.mx', 'John Doe');
 //Set the subject line
 $mail->Subject = 'PHPMailer SMTP test';
 //Read an HTML message body from an external file, convert referenced images to embedded,
