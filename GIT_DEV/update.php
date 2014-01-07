@@ -1,16 +1,10 @@
 <?php
 require 'sources/Funciones.php';
-//Se envia datos
 
-        
-        
-        
+
 if($_POST)
 {
-    //get Commits
     
-   
-        
     $arrayPOST    = json_decode($_POST['payload']);
     $arrayCommits = $arrayPOST ->commits;
     
@@ -21,33 +15,18 @@ if($_POST)
         $date       = $commit->timestamp;
         $nameCommit = $commit->message;
 
-        
-        //Insert Commits
-        $sql = new Query('MOD');
-        $sql->insert("commit",
-             "fecha,auto,nombre",
-             "'".$date."','".$mailAuthor."','".$nameCommit."'");
-        
-        $ultimoID = $sql->ultimoID("commit");
-        //
-        
+        $ultimoID = insertCommit($date, $mailAuthor, $nameCommit);
         
         $arrayFilesAdded    = $commit->added;
         $arrayFilesModified = $commit->modified;
         
         foreach ($arrayFilesAdded as $file) 
         {
-            $sql3 = new Query('MOD');
-            $sql3->insert("archivos",
-             "archivo,id_commit",
-             "'".$file."',".$ultimoID);
+            insertFile($file, $ultimoID);
         }
         foreach ($arrayFilesModified as $file) 
         {
-            $sql2 = new Query('MOD');
-            $sql2->insert("archivos",
-             "archivo,id_commit",
-             "'".$file."',".$ultimoID);
+            insertFile($file, $ultimoID);
         }
     }
 }

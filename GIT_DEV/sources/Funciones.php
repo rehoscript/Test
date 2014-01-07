@@ -56,4 +56,23 @@ function exts($id)
             $sql5->sql = "SELECT * FROM archivos  WHERE id_commit = ".$id;
            return  $resultado2 = $sql5->select();
 }
+
+function insertCommit($date, $mail, $name)
+{
+     $sql = new Query('MOD');
+     $sql->insert("commit",
+             "fecha,auto,nombre",
+             "'".$date."','".$mail."','".$name."'");
+        
+      return $ultimoID = $sql->ultimoID("commit");
+}
+
+function insertFile($file, $ultimoID)
+{
+     $sql3 = new Query('MOD');
+     $sql3->insert("archivos",
+             "archivo,id_commit",
+             "'".$file."',".$ultimoID);
+}
+
 ?>
