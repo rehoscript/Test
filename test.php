@@ -1,6 +1,7 @@
 <?php
 require "thread.php";
  
+echo $_GET['a'];
 function proceso($tiempo, $resultado) {
     usleep($tiempo);
     exit($resultado);
