@@ -31,7 +31,7 @@ $mail->SMTPSecure = "tls";
 //Set an alternative reply-to address
 //$mail->addReplyTo('replyto@example.com', 'First Last');
 //Set who the message is to be sent to
-$mail->addAddress('rehoscript2@hotmail.com', 'John Doe');
+$mail->addAddress('hectormoralespalma@gmail.com', 'John Doe');
 //Set the subject line
 $mail->Subject = 'PHPMailer SMTP test';
 //Read an HTML message body from an external file, convert referenced images to embedded,
