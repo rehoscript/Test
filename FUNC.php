@@ -11,7 +11,7 @@ public $mail;
 
 
 
-    public function __construct() {
+    public function __construct($destina) {
         
         $this->mail = new PHPMailer();
 //Tell PHPMailer to use SMTP
@@ -29,7 +29,7 @@ $this->mail->setFrom('rehoscript@gmail.com', 'First Last');
 //$mail->addReplyTo('replyto@example.com', 'First Last');
 //Set who the message is to be sent to
 //$mail->addAddress('enriquegprc@terra.com.mx', 'John Doe');
-$this->mail->addAddress('hectormoralespalma@gmail.com', 'John Doe');
+$this->mail->addAddress('rehoscript2@hotmail.com', 'John Doe');
 //Set the subject line
 $this->mail->Subject = 'ASUNTO';
 //Read an HTML message body from an external file, convert referenced images to embedded,
