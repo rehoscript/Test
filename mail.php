@@ -7,7 +7,7 @@ $headers .= "Organization: Sender Organization\r\n";
   $headers .= "X-Priority: 3\r\n";
   $headers .= "X-Mailer: PHP". phpversion() ."\r\n" ;
   $headers .= "Reply-To: hectormoralespalma@gmail.com\r\n";
-  $headers .= "From: MetaSpace";
+//  $headers .= "From: MetaSpace";
     
 echo mail("09280476@ittoluca.edu.mx", "Message", "A simple message.", $headers,'-fuser@192.241.217.91'); 
 echo mail("rehoscript@gmail.com", "Message", "A simple message.", $headers,'-fuser@192.241.217.91'); 
