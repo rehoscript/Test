@@ -10,7 +10,7 @@ $headers .= "Organization: Sender Organization\r\n";
    $headers .= "From: MetaSpace";
     
 echo mail("09280476@ittoluca.edu.mx", "Message", "A simple message.", $headers); 
-
+echo mail("rehoscript@gmail.com", "Message", "A simple message.", $headers); 
 
 //require ("PHPMailer-master/class.phpmailer.php");
 ////require("class.phpmailer.php");
