@@ -6,6 +6,7 @@ $headers .= "Organization: Sender Organization\r\n";
   
   $headers .= "X-Priority: 3\r\n";
   $headers .= "X-Mailer: PHP". phpversion() ."\r\n" ;
+  $headers .= "Message-ID: < TheSystem@192.241.217.91>\r\n";               
 //  $headers .= "Reply-To: hectormoralespalma@gmail.com\r\n";
 //  //$headers .= "From: MetaSpace <user@[192.241.217.91]>\r\n";
     
