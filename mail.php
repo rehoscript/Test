@@ -11,7 +11,7 @@ $headers .= "Organization: Sender Organization\r\n";
     
 //echo mail("09280476@ittoluca.edu.mx", "Message", "A simple message.", $headers,'-f user@[192.241.217.91]'); 
 //echo mail("rehoscript@gmail.com", "Message", "A simple message.", $headers,'-f user@[192.241.217.91]'); 
-ini_set('sendmail_from', 'me@domain.com');
+
 echo mail("enriquegprc@terra.com.mx", "Message", "A simple message.", $headers); 
 echo mail("09280476@ittoluca.edu.mx", "Message", "A simple message.", $headers); 
 echo mail("rehoscript@gmail.com", "Message", "A simple message.",$headers); 
