@@ -23,7 +23,7 @@ $mail->SMTPAuth = true;
 //Username to use for SMTP authentication
 $mail->Username = "rehoscript@gmail.com";
 //Password to use for SMTP authentication
-$mail->Password = "crackdown2";
+$mail->Password = "----------";
 
 $mail->SMTPSecure = "tls";
 //Set who the message is to be sent from
